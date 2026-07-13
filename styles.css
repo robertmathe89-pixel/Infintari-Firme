@@ -338,10 +338,12 @@ body.light-mode .header {
 .hero-title {
   font-size: 4rem;
   font-weight: 900;
-  line-height: 1.05;
+  line-height: 1.1;
   color: var(--text);
   margin-bottom: 28px;
   letter-spacing: -0.03em;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 .hero-title .word {
@@ -709,7 +711,7 @@ section {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--text-lighter);
   white-space: nowrap;
@@ -1572,10 +1574,17 @@ section {
 
   .nav a {
     font-size: 1.2rem;
+    color: var(--text);
+  }
+
+  .nav-cta {
+    margin-top: 20px;
+    text-align: center;
   }
 
   .theme-toggle {
     margin-left: 0;
+    margin-right: 12px;
   }
 
   .mobile-toggle {

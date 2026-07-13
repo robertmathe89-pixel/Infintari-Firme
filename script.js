@@ -59,24 +59,15 @@ document.addEventListener('DOMContentLoaded', function() {
     .to('.hero-trust', { opacity: 1, y: 0, duration: 0.8 }, '-=0.5')
     .to('.hero-card', { opacity: 1, y: 0, rotateX: 0, duration: 1 }, '-=0.8');
 
-  // Kinetic typography for hero title
+  // Kinetic typography for hero title - simple fade-in to avoid rendering issues
   const heroTitle = document.getElementById('heroTitle');
-  const titleText = heroTitle.textContent;
-  heroTitle.innerHTML = '';
+  heroTitle.style.opacity = '0';
+  heroTitle.style.transform = 'translateY(20px)';
 
-  titleText.split(' ').forEach((word, index) => {
-    const wordSpan = document.createElement('span');
-    wordSpan.className = 'word';
-    wordSpan.innerHTML = `<span>${word}</span> `;
-    heroTitle.appendChild(wordSpan);
-  });
-
-  const words = heroTitle.querySelectorAll('.word');
-  gsap.to(words, {
+  gsap.to(heroTitle, {
     opacity: 1,
     y: 0,
-    duration: 0.8,
-    stagger: 0.08,
+    duration: 1,
     ease: 'power3.out',
     delay: 0.5
   });
@@ -434,16 +425,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Trust marquee speed on scroll
+  // Trust marquee - constant slow speed, no scroll acceleration
   const trustMarquee = document.getElementById('trustMarquee');
   if (trustMarquee) {
-    let scrollSpeed = 1;
-    window.addEventListener('scroll', () => {
-      const velocity = Math.abs(window.scrollY - (window.lastScrollY || 0));
-      window.lastScrollY = window.scrollY;
-      scrollSpeed = Math.min(1 + velocity / 10, 3);
-      trustMarquee.style.animationDuration = `${30 / scrollSpeed}s`;
-    });
+    trustMarquee.style.animationDuration = '40s';
   }
 
   // Parallax for hero on scroll
