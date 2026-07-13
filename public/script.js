@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Register GSAP plugins
   gsap.registerPlugin(ScrollTrigger);
 
+  const isTouch = window.matchMedia('(pointer: coarse)').matches;
+
   // Mobile menu
   const mobileToggle = document.getElementById('mobileToggle');
   const navOverlay = document.getElementById('navOverlay');
@@ -72,146 +74,43 @@ document.addEventListener('DOMContentLoaded', function() {
   // Hero animations
   const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
+  // Animate hero title lines sequentially
   heroTl
-    .to('.hero-badge', { opacity: 1, y: 0, duration: 0.8, delay: 0.3 })
-    .to('.hero-description', { opacity: 1, y: 0, duration: 0.8 }, '-=0.4')
+    .to('.hero-badge', { opacity: 1, y: 0, duration: 0.8, delay: 0.2 })
+    .to('.hero-line', { opacity: 1, y: 0, duration: 0.9, stagger: 0.12 }, '-=0.4')
+    .to('.hero-description', { opacity: 1, y: 0, duration: 0.8 }, '-=0.6')
     .to('.hero-actions', { opacity: 1, y: 0, duration: 0.8 }, '-=0.5')
     .to('.hero-trust', { opacity: 1, y: 0, duration: 0.8 }, '-=0.5')
-    .to('.hero-card', { opacity: 1, y: 0, rotateX: 0, duration: 1 }, '-=0.8');
+    .to('.hero-card', { opacity: 1, y: 0, duration: 1 }, '-=0.8')
+    .to('.hero-scroll', { opacity: 1, duration: 0.8 }, '-=0.4');
 
-  // Kinetic typography for hero title - simple fade-in to avoid rendering issues
-  const heroTitle = document.getElementById('heroTitle');
-  heroTitle.style.opacity = '0';
-  heroTitle.style.transform = 'translateY(20px)';
-
-  gsap.to(heroTitle, {
-    opacity: 1,
-    y: 0,
-    duration: 1,
-    ease: 'power3.out',
-    delay: 0.5
-  });
-
-  // Hero canvas particle network
-  const canvas = document.getElementById('heroCanvas');
-  const ctx = canvas.getContext('2d');
-  let particles = [];
-  let animationId;
-  let isActive = true;
-
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
-
-  const isTouch = window.matchMedia('(pointer: coarse)').matches;
-  const particleCount = isTouch ? 30 : 60;
-  const connectionDistance = 120;
-  const maxConnections = 3;
-
-  class Particle {
-    constructor() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.vx = (Math.random() - 0.5) * 0.5;
-      this.vy = (Math.random() - 0.5) * 0.5;
-      this.radius = Math.random() * 2 + 1;
-    }
-
-    update() {
-      this.x += this.vx;
-      this.y += this.vy;
-
-      if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-      if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-    }
-
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(59, 130, 246, 0.4)';
-      ctx.fill();
-    }
-  }
-
-  for (let i = 0; i < particleCount; i++) {
-    particles.push(new Particle());
-  }
-
-  let mouseX = 0;
-  let mouseY = 0;
-
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  function drawConnections() {
-    for (let i = 0; i < particles.length; i++) {
-      let connections = 0;
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        if (distance < connectionDistance && connections < maxConnections) {
-          const opacity = 1 - distance / connectionDistance;
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(59, 130, 246, ${opacity * 0.2})`;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-          connections++;
-        }
-      }
-
-      // Connect to mouse
-      if (!isTouch) {
-        const dx = particles[i].x - mouseX;
-        const dy = particles[i].y - mouseY;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < 150) {
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(mouseX, mouseY);
-          ctx.strokeStyle = `rgba(59, 130, 246, ${0.3 * (1 - distance / 150)})`;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
-      }
-    }
-  }
-
-  function animateParticles() {
-    if (!isActive) return;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => {
-      p.update();
-      p.draw();
+  // Hero background parallax on mouse move
+  const heroBg = document.querySelector('.hero-bg');
+  const hero = document.querySelector('.hero');
+  if (heroBg && !isTouch) {
+    hero.addEventListener('mousemove', (e) => {
+      const rect = hero.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      gsap.to(heroBg, {
+        x: -x * 20,
+        y: -y * 20,
+        scale: 1.08,
+        duration: 0.8,
+        ease: 'power2.out'
+      });
     });
-    drawConnections();
-    animationId = requestAnimationFrame(animateParticles);
-  }
 
-  // Only run particles when hero is visible
-  const heroObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        isActive = true;
-        animateParticles();
-      } else {
-        isActive = false;
-        cancelAnimationFrame(animationId);
-      }
+    hero.addEventListener('mouseleave', () => {
+      gsap.to(heroBg, {
+        x: 0,
+        y: 0,
+        scale: 1.05,
+        duration: 1,
+        ease: 'power2.out'
+      });
     });
-  }, { threshold: 0.1 });
-
-  heroObserver.observe(document.querySelector('.hero'));
-  animateParticles();
+  }
 
   // Cursor glow
   const cursorGlow = document.querySelector('.cursor-glow');
