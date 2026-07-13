@@ -10,11 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function openMenu() {
     navOverlay.classList.add('active');
+    mobileToggle.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
 
   function closeMenuFn() {
     navOverlay.classList.remove('active');
+    mobileToggle.classList.remove('active');
     document.body.style.overflow = '';
   }
 
