@@ -415,26 +415,25 @@ body.light-mode .mobile-toggle {
 
 .hero-visual {
   position: absolute;
-  top: 52%;
-  left: 30%;
-  transform: translate(-50%, -50%);
-  width: 45%;
-  max-width: 520px;
+  bottom: 8%;
+  left: 3%;
+  width: 22%;
+  max-width: 260px;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 .hero-illustration {
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 0 60px rgba(59, 130, 246, 0.4));
+  filter: drop-shadow(0 0 40px rgba(59, 130, 246, 0.4));
   animation: float 6s ease-in-out infinite;
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-12px) rotate(1deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
 }
 
 @media (max-width: 1024px) {
@@ -445,14 +444,13 @@ body.light-mode .mobile-toggle {
 
   .hero-visual {
     position: relative;
-    top: auto;
+    bottom: auto;
     left: auto;
-    transform: none;
     width: 100%;
-    max-width: 280px;
+    max-width: 260px;
     margin: 0 auto;
     order: 2;
-    opacity: 0.95;
+    opacity: 0.9;
   }
 
   .hero-content {
@@ -466,7 +464,7 @@ body.light-mode .mobile-toggle {
 
 @media (max-width: 768px) {
   .hero-visual {
-    max-width: 220px;
+    max-width: 200px;
   }
 
   .hero-illustration {
