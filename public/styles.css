@@ -3346,3 +3346,20 @@ body.light-mode .sticky-mobile-cta {
     padding: 24px 20px;
   }
 }
+
+/* FORCE CONTACT HEADER CENTERING */
+.contact-info .section-tag,
+.contact-info .section-title,
+.contact-info .section-description,
+.contact .section-tag,
+.contact .section-title,
+.contact .section-description {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block;
+}
+
+.contact-info .section-description {
+  max-width: 520px;
+}
