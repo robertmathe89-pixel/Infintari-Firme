@@ -124,6 +124,8 @@ body.light-mode .header {
   align-items: center;
   justify-content: space-between;
   height: 80px;
+  position: relative;
+  z-index: 1002;
 }
 
 .logo {
@@ -232,6 +234,7 @@ body.light-mode .header {
   cursor: pointer;
   padding: 8px;
   z-index: 1001;
+  position: relative;
 }
 
 .mobile-toggle span {
@@ -240,6 +243,7 @@ body.light-mode .header {
   height: 2px;
   background: var(--text);
   transition: all 0.3s ease;
+  transform-origin: center;
 }
 
 /* Hero */
@@ -1567,14 +1571,17 @@ section {
 @media (max-width: 768px) {
   .nav {
     position: fixed;
-    top: 80px;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background: var(--bg);
+    z-index: 999;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 40px 24px;
-    gap: 24px;
+    gap: 32px;
     transform: translateX(100%);
     transition: transform 0.3s ease;
   }
@@ -1588,13 +1595,15 @@ section {
   }
 
   .nav a {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: var(--text);
   }
 
   .nav-cta {
     margin-top: 20px;
     text-align: center;
+    font-size: 1.3rem !important;
+    padding: 16px 32px !important;
   }
 
   .theme-toggle {
