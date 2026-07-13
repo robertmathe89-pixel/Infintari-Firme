@@ -4,31 +4,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Mobile menu
   const mobileToggle = document.getElementById('mobileToggle');
-  const nav = document.getElementById('nav');
-  const navLinks = nav.querySelectorAll('a');
+  const navOverlay = document.getElementById('navOverlay');
+  const closeMenu = document.getElementById('closeMenu');
+  const overlayLinks = navOverlay.querySelectorAll('a');
 
-  mobileToggle.addEventListener('click', function() {
-    nav.classList.toggle('active');
-    const spans = mobileToggle.querySelectorAll('span');
-    if (nav.classList.contains('active')) {
-      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-      spans[1].style.opacity = '0';
-      spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-    } else {
-      spans[0].style.transform = 'none';
-      spans[1].style.opacity = '1';
-      spans[2].style.transform = 'none';
-    }
+  function openMenu() {
+    navOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenuFn() {
+    navOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  mobileToggle.addEventListener('click', openMenu);
+  closeMenu.addEventListener('click', closeMenuFn);
+
+  overlayLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeMenuFn();
+    });
   });
 
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('active');
-      const spans = mobileToggle.querySelectorAll('span');
-      spans[0].style.transform = 'none';
-      spans[1].style.opacity = '1';
-      spans[2].style.transform = 'none';
-    });
+  // Close menu on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navOverlay.classList.contains('active')) {
+      closeMenuFn();
+    }
   });
 
   // Theme toggle
