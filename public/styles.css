@@ -3312,6 +3312,8 @@ body.light-mode .sticky-mobile-cta {
   position: relative;
   overflow: hidden;
   align-self: start;
+  margin-top: calc(1.5rem + 0.75rem + 2.8rem + 1.15rem + 44px + 20px);
+  /* approximate: tag + title margin + title + desc + methods margin-top + first card gap */
 }
 
 @media (max-width: 900px) {
