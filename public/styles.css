@@ -3154,3 +3154,81 @@ body.light-mode .sticky-mobile-cta {
     padding-top: 24px !important;
   }
 }
+
+
+/* Mobile header slimmer + contact cards aligned */
+@media (max-width: 768px) {
+  .header .container {
+    height: 60px;
+  }
+
+  .logo-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 0.8rem;
+  }
+
+  .logo {
+    font-size: 1.05rem;
+    gap: 10px;
+  }
+
+  .hero {
+    padding-top: 80px;
+  }
+
+  .contact-methods {
+    margin-top: 32px;
+    gap: 14px;
+  }
+
+  .contact-method {
+    align-items: flex-start;
+    padding: 16px 18px;
+  }
+
+  .contact-icon {
+    width: 42px;
+    height: 42px;
+    margin-top: 2px;
+  }
+
+  .contact-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .contact-value {
+    font-size: 1rem;
+  }
+
+  .contact-extra-card {
+    padding: 24px 20px;
+  }
+
+  .contact-extra-icon {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header .container {
+    height: 56px;
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.75rem;
+  }
+
+  .logo {
+    font-size: 1rem;
+    gap: 8px;
+  }
+
+  .hero {
+    padding-top: 76px;
+  }
+}
