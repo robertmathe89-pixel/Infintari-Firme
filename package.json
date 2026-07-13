@@ -1,0 +1,24 @@
+{
+  "name": "infintari-firme",
+  "version": "1.0.0",
+  "description": "Site de prezentare pentru înființare societăți comerciale - Avocat Dibosi Sorin, Timișoara",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "build": "echo 'Static site - no build needed'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "avocat",
+    "infiintare firma",
+    "Timisoara",
+    "SRL",
+    "PFA",
+    "societati comerciale"
+  ],
+  "author": "Dibosi Sorin",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}
