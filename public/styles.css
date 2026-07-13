@@ -2191,6 +2191,10 @@ section {
     padding: 32px;
   }
 
+  .contact-image-frame {
+    display: none;
+  }
+
   .contact-form .form-row {
     grid-template-columns: 1fr;
   }
