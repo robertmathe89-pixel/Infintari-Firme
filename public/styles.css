@@ -413,6 +413,67 @@ body.light-mode .mobile-toggle {
   align-items: center;
 }
 
+.hero-visual {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 45%;
+  max-width: 480px;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.hero-illustration {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 60px rgba(59, 130, 246, 0.15));
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@media (max-width: 1024px) {
+  .hero .container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .hero-visual {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    width: 100%;
+    max-width: 320px;
+    margin: 40px auto 0;
+    order: 2;
+  }
+
+  .hero-content {
+    order: 1;
+  }
+
+  .hero-card {
+    order: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-visual {
+    max-width: 260px;
+    margin-top: 30px;
+  }
+
+  .hero-illustration {
+    animation: none;
+  }
+}
+
 .hero-badge {
   display: inline-flex;
   align-items: center;
