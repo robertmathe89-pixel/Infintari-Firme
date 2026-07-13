@@ -2994,20 +2994,20 @@ body.light-mode .sticky-mobile-cta {
 
 @media (max-width: 768px) {
   .hero-content {
-    text-align: left;
+    text-align: center;
   }
 
   .hero-content .hero-badge {
-    margin-left: 0;
+    margin-left: auto;
     margin-right: auto;
   }
 
   .hero-content .hero-actions {
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .hero-content .hero-trust {
-    justify-content: flex-start;
+    justify-content: center;
   }
 }
 
@@ -3119,4 +3119,36 @@ body.light-mode .sticky-mobile-cta {
 .hero-content .hero-trust {
   opacity: 1 !important;
   transform: none !important;
+}
+
+
+/* Mobile fixes: pricing badge room, hero centered */
+@media (max-width: 768px) {
+  .pricing-card.featured {
+    padding-top: 28px !important;
+    margin-top: 16px;
+  }
+
+  .pricing-card {
+    position: relative;
+  }
+
+  .pricing-badge {
+    top: -13px;
+    padding: 7px 18px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-badge {
+    font-size: 0.65rem;
+    padding: 6px 14px;
+    top: -12px;
+  }
+
+  .pricing-card.featured {
+    padding-top: 24px !important;
+  }
 }
