@@ -418,17 +418,17 @@ body.light-mode .mobile-toggle {
   top: 52%;
   left: 30%;
   transform: translate(-50%, -50%);
-  width: 50%;
-  max-width: 600px;
+  width: 45%;
+  max-width: 520px;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.65;
+  opacity: 0.9;
 }
 
 .hero-illustration {
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 0 80px rgba(59, 130, 246, 0.35)) drop-shadow(0 0 120px rgba(245, 158, 11, 0.15));
+  filter: drop-shadow(0 0 60px rgba(59, 130, 246, 0.4));
   animation: float 6s ease-in-out infinite;
 }
 
@@ -449,10 +449,10 @@ body.light-mode .mobile-toggle {
     left: auto;
     transform: none;
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
     margin: 0 auto;
     order: 2;
-    opacity: 0.8;
+    opacity: 0.95;
   }
 
   .hero-content {
@@ -466,7 +466,7 @@ body.light-mode .mobile-toggle {
 
 @media (max-width: 768px) {
   .hero-visual {
-    max-width: 240px;
+    max-width: 220px;
   }
 
   .hero-illustration {
