@@ -3101,3 +3101,22 @@ body.light-mode .sticky-mobile-cta {
 .sticky-mobile-cta {
   display: none !important;
 }
+
+
+/* Hero visibility fix: ensure content is always visible, even before animations run */
+.hero-line,
+.hero-description,
+.hero-actions,
+.hero-trust,
+.hero-badge {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.hero-content .hero-badge,
+.hero-content .hero-description,
+.hero-content .hero-actions,
+.hero-content .hero-trust {
+  opacity: 1 !important;
+  transform: none !important;
+}
