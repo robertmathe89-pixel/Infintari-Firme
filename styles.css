@@ -1522,26 +1522,41 @@ section {
   }
 
   .timeline {
-    padding-left: 40px;
+    padding-left: 0;
   }
 
   .timeline-line,
   .timeline-progress {
-    left: 40px;
+    left: 20px;
   }
 
   .timeline-step:nth-child(odd),
   .timeline-step:nth-child(even) {
     flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 40px;
   }
 
   .timeline-content {
-    width: 100%;
+    width: calc(100% - 60px);
     margin-left: 60px;
+    padding: 24px;
   }
 
   .timeline-number {
-    left: 40px;
+    left: 20px;
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+    border-width: 3px;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.15rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.9rem;
   }
 
   .footer-content {
@@ -1624,6 +1639,20 @@ section {
 
   .timeline-content {
     margin-left: 50px;
+    width: calc(100% - 50px);
+    padding: 20px;
+  }
+
+  .timeline-line,
+  .timeline-progress {
+    left: 16px;
+  }
+
+  .timeline-number {
+    left: 16px;
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
   }
 
   .stats-card {
