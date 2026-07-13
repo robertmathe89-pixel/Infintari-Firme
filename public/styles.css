@@ -1812,11 +1812,27 @@ section {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: start;
-  max-width: 720px;
+  max-width: 1100px;
   margin: 0 auto;
+}
+
+.contact-info .section-header {
+  text-align: center;
+  margin: 0 auto 36px;
+}
+
+.contact-info .section-tag,
+.contact-info .section-title,
+.contact-info .section-description {
+  text-align: center;
+}
+
+.contact-info .section-description {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .contact .section-header {
@@ -2105,6 +2121,7 @@ section {
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 50px;
+    max-width: 720px;
   }
 
   .timeline {
@@ -2570,6 +2587,7 @@ section {
   .contact-grid {
     gap: 24px;
     max-width: none;
+    grid-template-columns: 1fr;
   }
 
   .contact-method .contact-icon {
