@@ -8,20 +8,35 @@ document.addEventListener('DOMContentLoaded', function() {
   const closeMenu = document.getElementById('closeMenu');
   const overlayLinks = navOverlay.querySelectorAll('a');
 
-  function openMenu() {
+  function openMenu(e) {
+    if (e) e.preventDefault();
     navOverlay.classList.add('active');
     mobileToggle.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
 
-  function closeMenuFn() {
+  function closeMenuFn(e) {
+    if (e) e.preventDefault();
     navOverlay.classList.remove('active');
     mobileToggle.classList.remove('active');
     document.body.style.overflow = '';
   }
 
-  mobileToggle.addEventListener('click', openMenu);
-  closeMenu.addEventListener('click', closeMenuFn);
+  if (mobileToggle) {
+    mobileToggle.addEventListener('click', openMenu);
+    mobileToggle.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      openMenu();
+    });
+  }
+
+  if (closeMenu) {
+    closeMenu.addEventListener('click', closeMenuFn);
+    closeMenu.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      closeMenuFn();
+    });
+  }
 
   overlayLinks.forEach(link => {
     link.addEventListener('click', () => {
