@@ -81,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
     .to('.hero-description', { opacity: 1, y: 0, duration: 0.8 }, '-=0.6')
     .to('.hero-actions', { opacity: 1, y: 0, duration: 0.8 }, '-=0.5')
     .to('.hero-trust', { opacity: 1, y: 0, duration: 0.8 }, '-=0.5')
-    .to('.hero-card', { opacity: 1, y: 0, duration: 1 }, '-=0.8')
     .to('.hero-scroll', { opacity: 1, duration: 0.8 }, '-=0.4');
 
   // Hero background parallax on mouse move
@@ -138,28 +137,6 @@ document.addEventListener('DOMContentLoaded', function() {
         item.classList.add('active');
       }
     });
-  });
-
-  // Form submissions
-  const heroForm = document.getElementById('heroForm');
-  const contactForm = document.getElementById('contactForm');
-
-  heroForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    gsap.to(heroForm, { scale: 0.98, duration: 0.1, yoyo: true, repeat: 1 });
-    setTimeout(() => {
-      alert('Mulțumim! Cererea a fost trimisă. Vă contactez în cel mult 24 de ore.');
-      heroForm.reset();
-    }, 200);
-  });
-
-  contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    gsap.to(contactForm, { scale: 0.98, duration: 0.1, yoyo: true, repeat: 1 });
-    setTimeout(() => {
-      alert('Mulțumim pentru mesaj! Vă contactez în cel mult 24 de ore.');
-      contactForm.reset();
-    }, 200);
   });
 
   // Header scroll effect
@@ -287,36 +264,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Hero card 3D tilt
-  const heroCard = document.getElementById('heroCard');
-  if (heroCard && !isTouch) {
-    heroCard.addEventListener('mousemove', (e) => {
-      const rect = heroCard.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = (y - centerY) / 30;
-      const rotateY = (centerX - x) / 30;
-
-      gsap.to(heroCard, {
-        rotateX: rotateX,
-        rotateY: rotateY,
-        duration: 0.3,
-        ease: 'power2.out'
-      });
-    });
-
-    heroCard.addEventListener('mouseleave', () => {
-      gsap.to(heroCard, {
-        rotateX: 0,
-        rotateY: 0,
-        duration: 0.5,
-        ease: 'power2.out'
-      });
-    });
-  }
-
   // Magnetic buttons
   const magneticButtons = document.querySelectorAll('.btn');
   magneticButtons.forEach(btn => {
@@ -353,17 +300,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // Parallax for hero on scroll
   gsap.to('.hero-content', {
     y: -80,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: '.hero',
-      start: 'top top',
-      end: 'bottom top',
-      scrub: true
-    }
-  });
-
-  gsap.to('.hero-card', {
-    y: -40,
     ease: 'none',
     scrollTrigger: {
       trigger: '.hero',
