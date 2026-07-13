@@ -415,26 +415,26 @@ body.light-mode .mobile-toggle {
 
 .hero-visual {
   position: absolute;
-  top: 50%;
-  right: 0;
+  top: 55%;
+  right: 5%;
   transform: translateY(-50%);
-  width: 45%;
-  max-width: 480px;
-  z-index: 1;
+  width: 42%;
+  max-width: 460px;
+  z-index: 0;
   pointer-events: none;
-  opacity: 0.8;
+  opacity: 0.5;
 }
 
 .hero-illustration {
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 0 60px rgba(59, 130, 246, 0.15));
-  animation: float 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 80px rgba(59, 130, 246, 0.2));
+  animation: float 7s ease-in-out infinite;
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  50% { transform: translateY(-16px); }
 }
 
 @media (max-width: 1024px) {
@@ -450,8 +450,9 @@ body.light-mode .mobile-toggle {
     transform: none;
     width: 100%;
     max-width: 320px;
-    margin: 40px auto 0;
+    margin: 0 auto;
     order: 2;
+    opacity: 0.7;
   }
 
   .hero-content {
@@ -466,7 +467,6 @@ body.light-mode .mobile-toggle {
 @media (max-width: 768px) {
   .hero-visual {
     max-width: 260px;
-    margin-top: 30px;
   }
 
   .hero-illustration {
