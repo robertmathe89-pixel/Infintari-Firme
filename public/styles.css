@@ -1412,7 +1412,7 @@ section {
   transform: translateY(30px);
   transform-style: preserve-3d;
   perspective: 1000px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .pricing-card::before {
@@ -1443,6 +1443,8 @@ section {
   border-top-color: var(--accent-light);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 50px rgba(180, 83, 9, 0.15);
   transform: translateY(-12px);
+  padding-top: 34px;
+  margin-top: 16px;
 }
 
 .pricing-card.featured:hover {
