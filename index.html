@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="noise-overlay"></div>
+  <div class="cursor-glow"></div>
 
   <!-- Header -->
   <header class="header" id="header">
@@ -26,6 +28,19 @@
         <a href="#faq">FAQ</a>
         <a href="#contact" class="nav-cta">Contactează-mă</a>
       </nav>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
       <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
         <span></span>
         <span></span>
@@ -36,18 +51,20 @@
 
   <!-- Hero -->
   <section class="hero" id="acasa">
+    <canvas class="hero-canvas" id="heroCanvas"></canvas>
+    <div class="hero-gradient"></div>
+    <div class="hero-gradient-2"></div>
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge">
           <span class="badge-dot"></span>
           Avocat definitiv Baroul Timiș
         </div>
-        <h1 class="hero-title">
-          Înființare firmă în Timișoara,<br>
-          <span class="text-accent">fără bătăi de cap</span>
+        <h1 class="hero-title" id="heroTitle">
+          Înființare firmă în Timișoara, rapid și fără bătăi de cap
         </h1>
         <p class="hero-description">
-          De la idee la firmă activă în cel mai scurt timp posibil. Ofer consultanță și asistență completă pentru SRL, PFA, II, IF, asociații și fundații. Peste 17 ani de experiență în avocatură.
+          De la idee la firmă activă în cel mai scurt timp posibil. Ofer consultanță și asistență completă pentru SRL, PFA, II, IF, asociații și fundații.
         </p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary">Consultanță gratuită</a>
@@ -66,7 +83,7 @@
           </div>
         </div>
       </div>
-      <div class="hero-card">
+      <div class="hero-card" id="heroCard">
         <div class="card-header">
           <h3>Începe acum — consultare gratuită</h3>
           <p>Completează formularul și te contactez în cel mult 24 de ore.</p>
@@ -98,17 +115,80 @@
         </form>
       </div>
     </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="mouse"></div>
+    </div>
   </section>
 
   <!-- Trust Bar -->
   <section class="trust-bar">
     <div class="container">
-      <span class="trust-bar-text">Partener de încredere pentru:</span>
-      <div class="trust-bar-logos">
-        <span class="trust-bar-logo">SRL-uri</span>
-        <span class="trust-bar-logo">PFA-uri</span>
-        <span class="trust-bar-logo">Asociații</span>
-        <span class="trust-bar-logo">Fundații</span>
+      <div class="trust-marquee" id="trustMarquee">
+        <div class="trust-bar-item">
+          <span class="trust-bar-icon">🏢</span>
+          <span>SRL-uri</span>
+        </div>
+        <div class="trust-bar-item">
+          <span class="trust-bar-icon">👤</span>
+          <span>PFA-uri</span>
+        </div>
+        <div class="trust-bar-item">
+          <span class="trust-bar-icon">🤝</span>
+          <span>Asociații</span>
+        </div>
+        <div class="trust-bar-item">
+          <span class="trust-bar-icon">🌟</span>
+          <span>Fundații</span>
+        </div>
+        <div class="trust-bar-item">
+          <span class="trust-bar-icon">📋</span>
+          <span>Modificări</span>
+        </div>
+        <div class="trust-bar-item">
+          <span class="trust-bar-icon">🏠</span>
+          <span>Sediu Social</span>
+        </div>
+        <div class="trust-bar-item">
+          <span class="trust-bar-icon">✅</span>
+          <span>Garanție de acuratețe</span>
+        </div>
+        <div class="trust-bar-item">
+          <span class="trust-bar-icon">⚡</span>
+          <span>Procedură rapidă</span>
+        </div>
+        <div class="trust-bar-item">
+          <span class="trust-bar-icon">🏢</span>
+          <span>SRL-uri</span>
+        </div>
+        <div class="trust-bar-item">
+          <span class="trust-bar-icon">👤</span>
+          <span>PFA-uri</span>
+        </div>
+        <div class="trust-bar-item">
+          <span class="trust-bar-icon">🤝</span>
+          <span>Asociații</span>
+        </div>
+        <div class="trust-bar-item">
+          <span class="trust-bar-icon">🌟</span>
+          <span>Fundații</span>
+        </div>
+        <div class="trust-bar-item">
+          <span class="trust-bar-icon">📋</span>
+          <span>Modificări</span>
+        </div>
+        <div class="trust-bar-item">
+          <span class="trust-bar-icon">🏠</span>
+          <span>Sediu Social</span>
+        </div>
+        <div class="trust-bar-item">
+          <span class="trust-bar-icon">✅</span>
+          <span>Garanție de acuratețe</span>
+        </div>
+        <div class="trust-bar-item">
+          <span class="trust-bar-icon">⚡</span>
+          <span>Procedură rapidă</span>
+        </div>
       </div>
     </div>
   </section>
@@ -122,7 +202,7 @@
         <p class="section-description">De la înființare la modificări, radiere sau sediu social — te ajut cu toate procedurile legale.</p>
       </div>
       <div class="services-grid">
-        <div class="service-card">
+        <div class="service-card" data-tilt>
           <div class="service-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
@@ -132,7 +212,7 @@
           <h3>Înființare SRL</h3>
           <p>Cel mai popular tip de firmă. Pregătesc actele și te reprezint la Registrul Comerțului.</p>
         </div>
-        <div class="service-card">
+        <div class="service-card" data-tilt>
           <div class="service-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -142,7 +222,7 @@
           <h3>PFA / II / IF</h3>
           <p>Persoană fizică autorizată, întreprindere individuală sau familială — pentru afaceri mici și mijlocii.</p>
         </div>
-        <div class="service-card">
+        <div class="service-card" data-tilt>
           <div class="service-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -154,7 +234,7 @@
           <h3>Asociații și Fundații</h3>
           <p>Asistență juridică completă pentru înființarea și înregistrarea organizațiilor non-profit.</p>
         </div>
-        <div class="service-card">
+        <div class="service-card" data-tilt>
           <div class="service-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"></circle>
@@ -164,7 +244,7 @@
           <h3>Modificări Societăți</h3>
           <p>Sediu social, obiect de activitate, coduri CAEN, capital social, administratori, cesiune părți sociale.</p>
         </div>
-        <div class="service-card">
+        <div class="service-card" data-tilt>
           <div class="service-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
@@ -175,7 +255,7 @@
           <h3>Sediu Social</h3>
           <p>Oferim sediu social la biroul de avocatură în Timișoara, pentru înființare sau prelungire valabilitate.</p>
         </div>
-        <div class="service-card">
+        <div class="service-card" data-tilt>
           <div class="service-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polyline points="3 6 5 6 21 6"></polyline>
@@ -189,7 +269,7 @@
     </div>
   </section>
 
-  <!-- How it works -->
+  <!-- How it works - Timeline -->
   <section class="how-it-works" id="cum-functioneaza">
     <div class="container">
       <div class="section-header">
@@ -197,26 +277,36 @@
         <h2 class="section-title">Patru pași simpli până la firmă activă</h2>
         <p class="section-description">Procedura este clară, rapidă și fără drumuri inutile.</p>
       </div>
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>Discuție gratuită</h3>
-          <p>Aflu ce tip de firmă ți se potrivește, în funcție de activitate, buget și planuri.</p>
+      <div class="timeline">
+        <div class="timeline-line"></div>
+        <div class="timeline-progress" id="timelineProgress"></div>
+        <div class="timeline-step">
+          <div class="timeline-number">1</div>
+          <div class="timeline-content">
+            <h3>Discuție gratuită</h3>
+            <p>Aflu ce tip de firmă ți se potrivește, în funcție de activitate, buget și planuri.</p>
+          </div>
         </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Pregătesc actele</h3>
-          <p>Redactez și verific toate documentele: act constitutiv, declarații, împuterniciri.</p>
+        <div class="timeline-step">
+          <div class="timeline-number">2</div>
+          <div class="timeline-content">
+            <h3>Pregătesc actele</h3>
+            <p>Redactez și verific toate documentele: act constitutiv, declarații, împuterniciri.</p>
+          </div>
         </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>Depunere la ORC</h3>
-          <p>Merg la Registrul Comerțului și urmăresc dosarul până la înregistrare.</p>
+        <div class="timeline-step">
+          <div class="timeline-number">3</div>
+          <div class="timeline-content">
+            <h3>Depunere la ORC</h3>
+            <p>Merg la Registrul Comerțului și urmăresc dosarul până la înregistrare.</p>
+          </div>
         </div>
-        <div class="step">
-          <div class="step-number">4</div>
-          <h3>Firmă activă</h3>
-          <p>Primești certificatul de înregistrare, codul CAEN și toate documentele.</p>
+        <div class="timeline-step">
+          <div class="timeline-number">4</div>
+          <div class="timeline-content">
+            <h3>Firmă activă</h3>
+            <p>Primești certificatul de înregistrare, codul CAEN și toate documentele.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -262,18 +352,18 @@
           </div>
         </div>
         <div class="why-visual">
-          <div class="stats-card">
+          <div class="stats-card" id="statsCard">
             <div class="stat">
-              <span class="stat-number">17+</span>
+              <span class="stat-number" data-count="17">0</span>
               <span class="stat-label">ani în avocatură</span>
             </div>
             <div class="stat">
-              <span class="stat-number">2009</span>
+              <span class="stat-number" data-count="2009">2009</span>
               <span class="stat-label">an intrării în Baroul Timiș</span>
             </div>
             <div class="stat">
-              <span class="stat-number">100%</span>
-              <span class="stat-label">Lucru direct cu avocatul</span>
+              <span class="stat-number" data-count="100">0</span>
+              <span class="stat-label">% lucru direct cu avocatul</span>
             </div>
           </div>
         </div>
@@ -290,7 +380,7 @@
         <p class="section-description">Tarife orientative. Prețul final depinde de complexitatea dosarului și de serviciile adiționale.</p>
       </div>
       <div class="pricing-grid">
-        <div class="pricing-card">
+        <div class="pricing-card" data-tilt>
           <h3>Consultanță</h3>
           <p class="description">Pentru cei care vor doar să clarifice ce tip de firmă le convine.</p>
           <div class="pricing-price">
@@ -305,7 +395,7 @@
           </ul>
           <a href="#contact" class="btn btn-secondary">Programează consultarea</a>
         </div>
-        <div class="pricing-card featured">
+        <div class="pricing-card featured" data-tilt>
           <span class="pricing-badge">Cel mai popular</span>
           <h3>Înființare SRL</h3>
           <p class="description">Pachet complet pentru cei mai mulți antreprenori. Tu semnezi, eu fac restul.</p>
@@ -320,9 +410,9 @@
             <li>Coduri CAEN incluse</li>
             <li>Suport telefon / WhatsApp</li>
           </ul>
-          <a href="#contact" class="btn btn-primary">Solicită ofertă</a>
+          <a href="#contact" class="btn btn-secondary">Solicită ofertă</a>
         </div>
-        <div class="pricing-card">
+        <div class="pricing-card" data-tilt>
           <h3>Premium</h3>
           <p class="description">Pentru cei care vor totul fără stres: firmă + sediu social + documente suplimentare.</p>
           <div class="pricing-price">
@@ -340,7 +430,7 @@
         </div>
       </div>
       <p class="pricing-guarantee">
-        <strong>Garanație de acuratețe:</strong> Fiecare dosar este verificat înainte de depunere. Fără surprize, fără taxe ascunse.
+        <strong>Garanție de acuratețe:</strong> Fiecare dosar este verificat înainte de depunere. Fără surprize, fără taxe ascunse.
       </p>
     </div>
   </section>
@@ -353,19 +443,19 @@
         <h2 class="section-title">Oameni care au lansat afaceri fără bătăi de cap</h2>
       </div>
       <div class="testimonials-grid">
-        <div class="testimonial-card">
+        <div class="testimonial-card" data-tilt>
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-text">"Nu mă așteptam să fie atât de simplu. Domnul avocat a pregătit tot, eu am semnat și am primit firma activă în câteva zile. Recomand cu încredere."</p>
           <div class="testimonial-author">Andrei M.</div>
           <div class="testimonial-role">Proprietar SRL construcții</div>
         </div>
-        <div class="testimonial-card">
+        <div class="testimonial-card" data-tilt>
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-text">"Am avut o problemă complicată cu schimbarea sediului social. A fost rezolvată rapid, fără să mai alerg eu prin instituții. Profesionist și disponibil."</p>
           <div class="testimonial-author">Maria P.</div>
           <div class="testimonial-role">Administrator firmă IT</div>
         </div>
-        <div class="testimonial-card">
+        <div class="testimonial-card" data-tilt>
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-text">"Preț corect, fără costuri ascunse. Cel mai important pentru mine a fost că am vorbit direct cu avocatul, nu cu interpuși."</p>
           <div class="testimonial-author">Cristian T.</div>
@@ -478,7 +568,7 @@
             </div>
           </div>
         </div>
-        <div class="contact-form-wrapper">
+        <div class="contact-form-wrapper" id="contactFormWrapper" data-tilt>
           <form class="contact-form" id="contactForm">
             <div class="form-row">
               <div class="form-group">
@@ -539,6 +629,8 @@
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
