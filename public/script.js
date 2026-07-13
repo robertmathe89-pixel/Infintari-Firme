@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Scroll reveal animations
-  const revealElements = document.querySelectorAll('.section-tag, .section-title, .section-description, .service-card, .timeline-step, .why-item, .stats-card, .pricing-card, .testimonial-card, .faq-item, .contact-method, .contact-form-wrapper, .pricing-guarantee');
+  const revealElements = document.querySelectorAll('.section-tag, .section-title, .section-description, .service-card, .timeline-step, .why-item, .why-stat, .why-image-frame, .pricing-card, .testimonial-card, .faq-item, .contact-method, .contact-form-wrapper, .pricing-guarantee');
 
   revealElements.forEach((el) => {
     gsap.fromTo(el,
