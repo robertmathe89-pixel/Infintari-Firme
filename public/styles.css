@@ -422,13 +422,13 @@ body.light-mode .mobile-toggle {
   max-width: 700px;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.35;
+  opacity: 0.45;
 }
 
 .hero-illustration {
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 0 100px rgba(59, 130, 246, 0.25));
+  filter: drop-shadow(0 0 100px rgba(59, 130, 246, 0.3));
   animation: float 7s ease-in-out infinite;
 }
 
