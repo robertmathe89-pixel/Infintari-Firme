@@ -3549,44 +3549,44 @@ body.light-mode .sticky-mobile-cta {
   }
 }
 
-.logo-img {
-  height: 42px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-  border-radius: 8px;
-  background: rgba(0, 0, 0, 0.25);
-  padding: 2px;
-}
-
-.footer-brand .logo-img {
-  height: 52px;
-  background: rgba(255, 255, 255, 0.06);
-}
-
 /* Hide old logo text/icon if any remain */
 .logo-icon,
 .logo-text {
   display: none;
 }
 
+.logo-img {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 3px;
+}
+
+.footer-brand .logo-img {
+  height: 68px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
 @media (max-width: 768px) {
   .logo-img {
-    height: 36px;
+    height: 48px;
   }
   
   .footer-brand .logo-img {
-    height: 44px;
+    height: 56px;
   }
 }
 
 @media (max-width: 480px) {
   .logo-img {
-    height: 32px;
+    height: 42px;
   }
   
   .footer-brand .logo-img {
-    height: 40px;
+    height: 50px;
   }
 }
 
