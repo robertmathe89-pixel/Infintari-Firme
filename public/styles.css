@@ -3316,41 +3316,161 @@ body.light-mode .sticky-mobile-cta {
   padding: 36px;
   box-shadow: var(--shadow);
   transition: all var(--transition);
+}
+
+/* Footer */
+.footer {
+  background: var(--bg);
+  color: var(--text);
+  padding: 80px 0 30px;
+  border-top: 1px solid var(--border);
   position: relative;
-  overflow: hidden;
-  align-self: start;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent-light), var(--accent), var(--accent-light), transparent);
+  opacity: 0.6;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+.footer-brand .logo {
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.footer-brand p {
+  color: var(--text-light);
+  max-width: 320px;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.footer-links h4 {
+  font-family: var(--font-display);
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.footer-copyright {
+  font-family: var(--font-display);
+  color: var(--accent-light);
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-links a,
+.footer-links span {
+  display: block;
+  color: var(--text-light);
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  transition: color var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--accent-light);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-bottom p {
+  color: var(--text-lighter);
+  font-size: 0.9rem;
+}
+
+.footer-note {
+  max-width: 500px;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-note {
+    text-align: center;
+  }
+}
+
+/* CONTACT LAYOUT FIXES */
+.contact-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.contact-info {
+  width: 100%;
+  max-width: 720px;
+}
+
+.contact-info .section-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 44px;
+}
+
+.contact-info .section-header .section-description {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-extra-card {
+  width: 100%;
+  max-width: 720px;
+  align-self: center;
+  margin-top: 0;
 }
 
 @media (max-width: 900px) {
-  .contact-body {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    max-width: 640px;
-  }
-  
-  .contact-extra-card {
-    width: 100%;
+  .contact-grid {
+    gap: 32px;
   }
 }
 
 @media (max-width: 768px) {
-  .contact {
-    padding: 80px 0 90px;
-  }
-  
-  .contact-header {
+  .contact-info .section-header {
     margin-bottom: 32px;
   }
-  
-  .contact-methods {
-    gap: 14px;
+
+  .contact-grid {
+    gap: 28px;
   }
-  
-  .contact-method {
-    padding: 16px 18px;
-  }
-  
+
   .contact-extra-card {
     padding: 24px 20px;
   }
 }
+
