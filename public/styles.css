@@ -3454,6 +3454,15 @@ body.light-mode .sticky-mobile-cta {
   margin-top: 0;
 }
 
+.contact-method {
+  transform: translateX(0) !important;
+  opacity: 1 !important;
+}
+
+.contact-method:hover {
+  transform: translateX(8px) !important;
+}
+
 @media (max-width: 900px) {
   .contact-grid {
     gap: 32px;
