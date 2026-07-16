@@ -3555,10 +3555,13 @@ body.light-mode .sticky-mobile-cta {
   object-fit: contain;
   display: block;
   border-radius: 8px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 2px;
 }
 
 .footer-brand .logo-img {
   height: 52px;
+  background: rgba(255, 255, 255, 0.06);
 }
 
 /* Hide old logo text/icon if any remain */
