@@ -3485,7 +3485,67 @@ body.light-mode .sticky-mobile-cta {
   }
 
   .contact-extra-card {
-    padding: 24px 20px;
+    padding: 24px 20px !important;
+  }
+}
+
+/* Mobile header slim + hero badge overlap fix */
+@media (max-width: 768px) {
+  .header {
+    padding: 8px 0;
+  }
+  
+  .header.scrolled {
+    padding: 6px 0;
+  }
+  
+  .header .container {
+    height: 38px;
+  }
+  
+  .hero {
+    padding-top: 100px;
+  }
+  
+  .why-content {
+    text-align: center;
+  }
+  
+  .why-content .section-tag,
+  .why-content .section-title,
+  .why-content .section-description {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .why-content .section-description {
+    max-width: 520px;
+  }
+  
+  .why-item {
+    justify-content: center;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .header .container {
+    height: 34px;
+  }
+  
+  .hero {
+    padding-top: 90px;
+  }
+  
+  .why-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .why-item .why-check {
+    margin-bottom: 8px;
   }
 }
 
