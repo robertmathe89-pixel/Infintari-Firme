@@ -3549,6 +3549,44 @@ body.light-mode .sticky-mobile-cta {
   }
 }
 
+.logo-img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
+}
+
+.footer-brand .logo-img {
+  height: 52px;
+}
+
+/* Hide old logo text/icon if any remain */
+.logo-icon,
+.logo-text {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .logo-img {
+    height: 36px;
+  }
+  
+  .footer-brand .logo-img {
+    height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-img {
+    height: 32px;
+  }
+  
+  .footer-brand .logo-img {
+    height: 40px;
+  }
+}
+
 /* Desktop header slim 30% */
 @media (min-width: 769px) {
   .header {
