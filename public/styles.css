@@ -3549,3 +3549,33 @@ body.light-mode .sticky-mobile-cta {
   }
 }
 
+/* Desktop header slim 30% */
+@media (min-width: 769px) {
+  .header {
+    padding: 14px 0 !important;
+  }
+  
+  .header.scrolled {
+    padding: 10px 0 !important;
+  }
+  
+  .header .container {
+    height: 34px !important;
+  }
+  
+  .logo {
+    font-size: 1.1rem !important;
+  }
+  
+  .logo-icon {
+    width: 34px !important;
+    height: 34px !important;
+    font-size: 0.8rem !important;
+  }
+  
+  .nav a {
+    font-size: 0.85rem !important;
+    padding: 8px 12px !important;
+  }
+}
+
